@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, SafeAreaView} from 'react-native';
 import React, { useState } from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -16,7 +16,7 @@ const ProfileImage: React.FC = () => {
     })
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={imageUri ? {uri: imageUri} : profilePic} style={{width: 200, height: 200}} />
       <View style={styles.uploadContainer}>
         <TouchableOpacity onPress={uploadImage} style={styles.uploadButton}>
@@ -24,7 +24,7 @@ const ProfileImage: React.FC = () => {
           <Icon name="camera" size={20} color="black" />
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     elevation: 2,
     overflow: 'hidden',
-    marginVertical: 40,
+    marginVertical: 60,
   },
   uploadContainer: {
     opacity: 0.7,

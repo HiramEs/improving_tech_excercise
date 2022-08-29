@@ -1,4 +1,4 @@
-import {View, FlatList, Image, StyleSheet, Dimensions} from 'react-native';
+import {FlatList, Image, StyleSheet, Dimensions, SafeAreaView} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {MemeImage} from '../models/models';
 import CarouselItem from '../components/CarouselItem';
@@ -19,7 +19,7 @@ export default function MainScreen() {
   }, [setCarouselData]);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         horizontal
         keyExtractor={item => item.id.toString()}
@@ -36,7 +36,7 @@ export default function MainScreen() {
           />
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

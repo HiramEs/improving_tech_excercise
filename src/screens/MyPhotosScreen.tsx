@@ -1,4 +1,4 @@
-import {View, Dimensions, FlatList, StyleSheet, Text} from 'react-native';
+import {FlatList, StyleSheet, Text, SafeAreaView} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {MemeImage} from '../models/models';
 import ListItem from '../components/ListItem';
@@ -6,9 +6,6 @@ import ListItem from '../components/ListItem';
 export default function MyPhotosScreen() {
   const [listData, setListData] = useState<MemeImage[]>([]);
   const [isFetching, setIsFetching] = React.useState(false);
-  const {width, height} = Dimensions.get('screen');
-  const imageWidth = width * 0.7;
-  const imageHeight = height * 0.6;
 
   useEffect(() => {
     fetch('https://api.imgflip.com/get_memes')
@@ -36,7 +33,7 @@ export default function MyPhotosScreen() {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         onRefresh={onRefresh}
         refreshing={isFetching}
@@ -44,7 +41,7 @@ export default function MyPhotosScreen() {
         data={listData}
         renderItem={({item}) => <ListItem name={item.name} url={item.url} onDelete={() => onDelete(item.id)} />}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({

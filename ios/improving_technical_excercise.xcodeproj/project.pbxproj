@@ -43,6 +43,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-improving_technical_excercise.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-improving_technical_excercise.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = improving_technical_excercise/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-improving_technical_excercise-improving_technical_excerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-improving_technical_excercise-improving_technical_excerciseTests.release.xcconfig"; path = "Target Support Files/Pods-improving_technical_excercise-improving_technical_excerciseTests/Pods-improving_technical_excercise-improving_technical_excerciseTests.release.xcconfig"; sourceTree = "<group>"; };
+		8BFA7B8828BAE05B00467664 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		8BFA7B8928BAE89800467664 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				8BFA7B8728BADF3800467664 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* improving_technical_excercise */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* improving_technical_excerciseTests */,
@@ -135,6 +138,15 @@
 				00E356EE1AD99517003FC87E /* improving_technical_excerciseTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8BFA7B8728BADF3800467664 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8BFA7B8928BAE89800467664 /* Ionicons.ttf */,
+				8BFA7B8828BAE05B00467664 /* FontAwesome.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -486,6 +498,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554RC4X9P3;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = improving_technical_excercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -512,6 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 554RC4X9P3;
 				INFOPLIST_FILE = improving_technical_excercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

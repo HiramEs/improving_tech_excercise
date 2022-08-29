@@ -5,7 +5,7 @@ import {
   Platform,
   PermissionsAndroid,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import CustomTextInput from '../components/TextInput';
 import ProfileImage from '../components/ProfileImage';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -13,6 +13,7 @@ import {getDeviceName} from 'react-native-device-info';
 import Geolocation from '@react-native-community/geolocation';
 import CustomButton from '../components/CustomButton';
 import * as Keychain from 'react-native-keychain';
+import { SignedInContext } from '../../App';
 
 export default function ProfileScreen() {
   const [name, setName] = useState<string>('Kaladin Stormblessed');
@@ -27,6 +28,7 @@ export default function ProfileScreen() {
     const deviceInfo = await getDeviceName();
     setDevice(deviceInfo);
   };
+  const {setSignedIn} = useContext(SignedInContext);
 
   const getCurrentLocation = () => {
     Geolocation.getCurrentPosition(
@@ -49,6 +51,7 @@ export default function ProfileScreen() {
   const signOut =  async () => {
     try {
       await Keychain.resetGenericPassword();
+      setSignedIn(false);
     } catch (error) {
       console.log(error);
     }

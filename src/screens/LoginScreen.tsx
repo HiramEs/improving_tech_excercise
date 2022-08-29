@@ -1,8 +1,9 @@
 import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomButton from '../components/CustomButton';
 import CheckBox from '@react-native-community/checkbox';
 import CustomTextInput from '../components/TextInput';
+import * as Keychain from 'react-native-keychain';
 
 type LoginScreenProps = {
   onSignIn: () => void;
@@ -14,7 +15,21 @@ const LoginScreen: React.FC<LoginScreenProps> = ({onSignIn}) => {
   const [rememberMe, setRememberMe] = useState<boolean>(false);
 
   const isDataComplete = username !== '' && password !== '';
-  
+
+  const login = async () => {
+    try {
+      if(rememberMe) await Keychain.setGenericPassword(username, password);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const signIn = async () => {
+    if(rememberMe) {
+      login();
+    }
+    onSignIn();
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -41,7 +56,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({onSignIn}) => {
         />
         <Text style={styles.text}>Remember Me?</Text>
       </View>
-      <CustomButton title="Sign In" onPress={onSignIn} isDisable={!isDataComplete} />
+      <CustomButton title="Sign In" onPress={signIn} isDisable={!isDataComplete} />
     </SafeAreaView>
   );
 };

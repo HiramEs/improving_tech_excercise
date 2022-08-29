@@ -11,6 +11,8 @@ import ProfileImage from '../components/ProfileImage';
 import {ScrollView} from 'react-native-gesture-handler';
 import {getDeviceName} from 'react-native-device-info';
 import Geolocation from '@react-native-community/geolocation';
+import CustomButton from '../components/CustomButton';
+import * as Keychain from 'react-native-keychain';
 
 export default function ProfileScreen() {
   const [name, setName] = useState<string>('Kaladin Stormblessed');
@@ -43,6 +45,14 @@ export default function ProfileScreen() {
       },
     );
   };
+
+  const signOut =  async () => {
+    try {
+      await Keychain.resetGenericPassword();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     const requestLocationPermission = async () => {
@@ -115,6 +125,7 @@ export default function ProfileScreen() {
             {latitude},{longitude}
           </Text>
         </View>
+        <CustomButton title='Sign out' onPress={signOut} />
       </ScrollView>
     </View>
   );
@@ -128,6 +139,7 @@ const styles = StyleSheet.create({
   deviceInfo: {
     flexDirection: 'row',
     alignSelf: 'center',
+    marginBottom: 5
   },
   infoLabel: {
     color: '#ffffff',

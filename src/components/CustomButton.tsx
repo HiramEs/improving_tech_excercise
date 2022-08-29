@@ -4,7 +4,7 @@ import React from 'react';
 type CustomButtonProps = {
   title: string;
   onPress: () => void;
-  isDisable: boolean;
+  isDisable?: boolean;
 };
 
 const CustomButton: React.FC<CustomButtonProps> = ({title, onPress, isDisable}) => {

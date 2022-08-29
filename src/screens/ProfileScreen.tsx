@@ -132,10 +132,10 @@ const styles = StyleSheet.create({
   infoLabel: {
     color: '#ffffff',
     fontWeight: '800',
-    fontSize: 16,
+    fontSize: 14,
   },
   text: {
     color: '#ffffff',
-    fontSize: 16,
+    fontSize: 14,
   },
 });

@@ -19,8 +19,8 @@ const ListItem: React.FC<ListItemProps> = ({name, url, onDelete}) => {
   const renderRightActions = () => {
     return (
       <View style={styles.swipedRow}>
-        <Animated.View style={styles.deleteButton}>
-          <TouchableOpacity onPress={onDelete}>
+        <Animated.View>
+          <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
             <Text style={styles.text} >Delete</Text>
           </TouchableOpacity>
         </Animated.View>
@@ -64,8 +64,9 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     height: 80,
     alignSelf: 'center',
-    borderTopRightRadius: 5,
-    borderBottomLeftRadius: 5,
+    marginRight: 10,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   deleteButton: {
     backgroundColor: '#b60000',

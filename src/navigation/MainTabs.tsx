@@ -27,9 +27,9 @@ export default function MainTabs() {
         tabBarInactiveTintColor: '#ffffff',
         tabBarInactiveBackgroundColor: '#000000',
         tabBarActiveBackgroundColor: '#000000',
-        headerShown: false
+        headerShown: false,
       })}>
-      <Tabs.Screen name="Main" component={MainScreen} />
+      <Tabs.Screen name="Main" component={MainScreen} options={{tabBarBadge: 3}} />
       <Tabs.Screen name="MyPhotos" component={MyPhotosScreen} />
       <Tabs.Screen name="Profile" component={ProfileScreen} />
     </Tabs.Navigator>

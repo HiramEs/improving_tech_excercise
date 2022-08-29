@@ -79,24 +79,28 @@ export default function ProfileScreen() {
           justifyContent: 'center',
         }}>
         <ProfileImage />
+        <Text style={{...styles.text, marginBottom: 10}}>Name</Text>
         <CustomTextInput
           placeholder="Name"
           value={name}
           onChangeText={value => setName(value)}
         />
+        <Text style={{...styles.text, marginBottom: 10}}>Username</Text>
         <CustomTextInput
           placeholder="Username"
           value={username}
           onChangeText={value => setUserName(value)}
         />
+        <Text style={{...styles.text, marginBottom: 10}}>Contact</Text>
         <CustomTextInput
           placeholder="Contact"
           value={contact}
           onChangeText={value => setContact(value)}
           keyboard="numeric"
         />
+        <Text style={{...styles.text, marginBottom: 10}}>Age</Text>
         <CustomTextInput
-          placeholder="Contact"
+          placeholder="Age"
           value={age}
           onChangeText={value => setAge(value)}
           keyboard="numeric"

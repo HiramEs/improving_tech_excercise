@@ -7,23 +7,22 @@ export default function MyPhotosScreen() {
   const [listData, setListData] = useState<MemeImage[]>([]);
   const [isFetching, setIsFetching] = React.useState(false);
 
-  useEffect(() => {
-    fetch('https://api.imgflip.com/get_memes')
-      .then(res => res.json())
-      .then(res => setListData(res.data.memes))
-      .catch(e => {
-        console.log(e);
-      });
-  }, [setListData]);
-
-  const onRefresh = async () => {
-    setIsFetching(true);
+  const fetchData = async () => {
     await fetch('https://api.imgflip.com/get_memes')
       .then(res => res.json())
       .then(res => setListData(res.data.memes))
       .catch(e => {
         console.log(e);
       });
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const onRefresh = async () => {
+    setIsFetching(true);
+    fetchData();
     setIsFetching(false);
   };
 
@@ -37,6 +36,8 @@ export default function MyPhotosScreen() {
       <FlatList
         onRefresh={onRefresh}
         refreshing={isFetching}
+        maxToRenderPerBatch={20}
+        initialNumToRender={20}
         keyExtractor={item => item.id.toString()}
         data={listData}
         renderItem={({item}) => <ListItem name={item.name} url={item.url} onDelete={() => onDelete(item.id)} />}

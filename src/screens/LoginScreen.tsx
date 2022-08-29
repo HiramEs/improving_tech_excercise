@@ -2,6 +2,7 @@ import {SafeAreaView, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, {useState} from 'react';
 import CustomButton from '../components/CustomButton';
 import CheckBox from '@react-native-community/checkbox';
+import CustomTextInput from '../components/TextInput';
 
 type LoginScreenProps = {
   onSignIn: () => void;
@@ -17,20 +18,16 @@ const LoginScreen: React.FC<LoginScreenProps> = ({onSignIn}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput
+      <CustomTextInput
         placeholder="Username"
         value={username}
-        onChangeText={username => setUsername(username)}
-        style={styles.textInput}
-        placeholderTextColor="#ffffff"
+        onChangeText={(username) => setUsername(username)}
       />
-      <TextInput
+      <CustomTextInput
         placeholder="Password"
         value={password}
         onChangeText={password => setPassword(password)}
-        style={styles.textInput}
-        placeholderTextColor="#ffffff"
-        secureTextEntry
+        isPassword
       />
       <View style={styles.rememberMe}>
         <CheckBox
@@ -60,16 +57,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#ffffff',
-  },
-  textInput: {
-    borderRadius: 6,
-    color: '#ffffff',
-    fontSize: 15,
-    width: '80%',
-    height: 50,
-    marginBottom: 15,
-    backgroundColor: '#333333',
-    paddingLeft: 10,
   },
   rememberMe: {
     flexDirection: 'row',
